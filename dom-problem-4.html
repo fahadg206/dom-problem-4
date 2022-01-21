@@ -9,20 +9,39 @@
 <body>
 
     <button onclick="myFunction()">Click Here!</button>
-    <div id="dropdown">
-        <h3>DropDown</h3>
-        <select name="dropdown-menu">
-            <option value="item-1">Item 1</option>
-            <option value="item-2">Item 2</option>
-            <option value="item-3">Item 3</option>
+   
+        <h3>Push Day Workout</h3>
+        <select id="dropdown">
+            <option value="Shoulders">Shoulders</option>
+            <option value="Chest">Chest</option>
+            <option value="Triceps">Triceps</option>
         </select>
-    </div>
+
+        <p id="count"></p>
+        <p id="bodyparts"></p>
+        
+   
 
     <script>
         function myFunction() {
-            const dropdown = document.getElementById("dropdown")
-            dropdown.alert("")
 
+            listCount = document.getElementById("dropdown").length;
+
+            document.getElementById("count").innerHTML = "There are " + listCount + " body parts we will be working out today.";
+
+            myList = document.getElementById("dropdown");
+
+            let nameOfList = "";
+ 
+            for(let i=0; i < myList.length; i++) {
+                nameOfList = myList.options[i].text + nameOfList 
+            };
+
+            document.getElementById("bodyparts").innerHTML = "In today's workout, we will be working on " + nameOfList + ".";
+
+
+            
+            
         }
     </script>
 </body>
