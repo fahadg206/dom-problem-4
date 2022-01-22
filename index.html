@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Problem 4</title>
+</head>
+<body>
+
+    <input type="button" onclick="myFunction()" value="Click Here To Start Your Program!">
+   
+    <h3>Push Day Workout</h3>
+    <select id="dropdown" onchange="myFunction()">
+        <option value="Shoulders">Shoulders</option>
+        <option value="Chest">Chest</option>
+        <option value="Triceps">Triceps</option>
+    </select>
+
+    <p id="count"></p>
+    <p id="bodyparts"></p>
+    <p id="selectedPart"></p>
+    
+   
+
+    <script>
+        function myFunction() {
+
+            listCount = document.getElementById("dropdown").length;
+
+            document.getElementById("count").innerHTML = "There are " + listCount + " body parts we will be working out today.";
+
+            const myList = document.getElementById("dropdown");
+
+            let nameOfList = "";
+ 
+            for(let i=0; i < myList.length; i++) {
+                nameOfList = myList.options[i].text + nameOfList 
+            };
+
+            document.getElementById("bodyparts").innerHTML = "In today's workout, we will be working on either " + nameOfList + "." + "Please select from the dropdown menu above on which body part you would like to work on first!";
+
+            let bodypart = document.getElementById("dropdown").value;
+            document.getElementById("selectedPart").innerHTML = "You selected to work on " + bodypart + " today!";
+
+
+            
+            
+        }
+    </script>
+</body>
+</html>
